@@ -1,0 +1,41 @@
+{
+    "manifest_version": 3,
+    "name": "Remove Search AI",
+    "version": "0.1.4",
+    "description": "Removes AI UI entry points from Google and Bing search pages.",
+    "icons": {
+        "16": "logo.png",
+        "32": "logo.png",
+        "48": "logo.png",
+        "128": "logo.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.google.com/search*",
+                "https://www.google.com/webhp*",
+                "https://www.google.com/"
+            ],
+            "js": [
+                "src/pages/google-search.js",
+                "src/content-bootstrap.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "matches": [
+                "https://www.bing.com/search*",
+                "https://www.bing.com/copilotsearch*",
+                "https://www.bing.com/",
+                "https://bing.com/search*",
+                "https://bing.com/copilotsearch*",
+                "https://bing.com/"
+            ],
+            "js": [
+                "src/pages/bing-search.js",
+                "src/content-bootstrap.js"
+            ],
+            "run_at": "document_start"
+        }
+    ]
+}
